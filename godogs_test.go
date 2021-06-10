@@ -3,9 +3,10 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/cucumber/godog/colors"
 	"os"
 	"testing"
+
+	"github.com/cucumber/godog/colors"
 
 	"github.com/cucumber/godog"
 	"github.com/stretchr/testify/assert"

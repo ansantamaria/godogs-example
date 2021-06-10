@@ -4,7 +4,8 @@ Feature: get version
   I need to be able to request version
 
   Scenario: does not allow POST method
-    When I send "POST" request to "/version"
+    Given a GET method for get version
+    When i send "POST" request to "/version"
     Then the response code should be 405
     And the response should match json:
       """
@@ -14,7 +15,8 @@ Feature: get version
       """
 
   Scenario: should get version number
-    When I send "GET" request to "/version"
+    Given a GET method for get version
+    When i send "GET" request to "/version"
     Then the response code should be 200
     And the response should match json:
       """

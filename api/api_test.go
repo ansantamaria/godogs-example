@@ -70,12 +70,17 @@ func (a *apiFeature) theResponseShouldMatchJSON(body *godog.DocString) (err erro
 	return nil
 }
 
+func doNothing() (err error) {
+	return nil
+}
+
 func InitializeScenario(ctx *godog.ScenarioContext) {
 	api := &apiFeature{}
 
 	ctx.BeforeScenario(api.resetResponse)
 
-	ctx.Step(`^I send "(GET|POST|PUT|DELETE)" request to "([^"]*)"$`, api.iSendRequestTo)
+	ctx.Step(`^i send "(GET|POST|PUT|DELETE)" request to "([^"]*)"$`, api.iSendRequestTo)
 	ctx.Step(`^the response code should be (\d+)$`, api.theResponseCodeShouldBe)
 	ctx.Step(`^the response should match json:$`, api.theResponseShouldMatchJSON)
+	ctx.Step(`^a GET method for get version$`, doNothing)
 }
